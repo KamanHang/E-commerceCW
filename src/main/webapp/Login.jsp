@@ -17,20 +17,21 @@
                   <form action="#">
                   <header>Login</header>
                       <div class="field input-field">
-                          <input type="email" placeholder="Email" class="input"/>
-                      </div>
+                        <input type="email" placeholder="Email" class="input" name="email" />
+                    </div>
+                    
 
-                      <div class="field input-field">
-                          <input type="Password" placeholder="Password" class="Password"/>
-                          <i class='bx bx-hide eye-icon'></i>
-                      </div>
+                    <div class="field input-field">
+                        <input type="Password" placeholder="Enter your password" class="Password" name="password"/>
+                        
+                    </div>
 
                       <div class="field button-field">
                           <button>Login</button>
                       </div>
 
                       <div class="form-link">
-                            <span>Don't have an account ? <a href="/signup" class="signup-link">Signup</a></span>
+                            <span>Don't have an account ? <a href="signup.jsp" class="signup-link">Sign up</a></span>
                       </div>
                   </form>
               </div>

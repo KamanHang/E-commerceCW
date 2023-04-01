@@ -10,14 +10,13 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  <servlet>
-  		<servlet-name> anotherServlet </servlet-name>
-  		<servlet-class> servlet.AotherServlet </servlet-class> 
-  
-  <init-param>
-  		<param-name> driver </param-name>
-  		<param-value>com.mysql.cj.jdbc.Driver</param-value>
-  </init-param>
+   <servlet>
+  	<servlet-name>customerRegistration</servlet-name>
+  	<servlet-class>servlet.CustomerRegistration</servlet-class>
   </servlet>
   
+  <servlet-mapping>
+  	<servlet-name>customerRegistration</servlet-name>
+  	<url-pattern>/registration</url-pattern>
+  </servlet-mapping>
 </web-app>

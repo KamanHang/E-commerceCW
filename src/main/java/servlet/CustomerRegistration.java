@@ -17,18 +17,19 @@ public class CustomerRegistration extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	public void service(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
+		String username = request.getParameter("username");
 		String email = request.getParameter("email");
-		String createPassword = request.getParameter("createPassword");
-		String confirmPassword = request.getParameter("confirmPassword");
+		String password = request.getParameter("password");
 	
 		
+		
+		System.out.println(username);
 		System.out.println(email);
-		System.out.println(createPassword);
-		System.out.println(confirmPassword);
+		System.out.println(password);
 		
 
-	CustomerDao cd = new CustomerDao();
-		String message = cd.registrationCustomer(email, createPassword, confirmPassword);
+		CustomerDao cd = new CustomerDao();
+		String message = cd.registerCustomer(username, email, password);
 		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
@@ -38,9 +39,9 @@ public class CustomerRegistration extends HttpServlet{
 			out.println("<h1>Registration Successfully</h1>");
 		}
 		else {
-			out.println("<h1> User already exists <a href=CustomerRegistration.html> Try Again </a></h1>");
+			out.println("<h1> User already exists <a href=signup.jsp> Try Again </a></h1>");
 		}
-		
+//		
 
 		
 		
