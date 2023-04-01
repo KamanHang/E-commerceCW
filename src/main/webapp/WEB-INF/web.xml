@@ -15,8 +15,18 @@
   	<servlet-class>servlet.CustomerRegistration</servlet-class>
   </servlet>
   
+   <servlet>
+  	<servlet-name>customerLogin</servlet-name>
+  	<servlet-class>servlet.Login</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>customerRegistration</servlet-name>
   	<url-pattern>/registration</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>customerLogin</servlet-name>
+  	<url-pattern>/login</url-pattern>
   </servlet-mapping>
 </web-app>
