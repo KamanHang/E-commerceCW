@@ -2,6 +2,7 @@ package databases;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CustomerDao {
@@ -49,6 +50,29 @@ public class CustomerDao {
 			}
 		
 		}
+	
+		public boolean loginCustomer(String email, String pass) {
+		    try {
+		        Connection con = getConnection();
+	
+		        String query = "SELECT * FROM registration WHERE email = ? AND password = ?";
+	
+		        PreparedStatement st = con.prepareStatement(query);
+		        st.setString(1, email);
+		        st.setString(2, pass);
+	
+		        ResultSet rs = st.executeQuery();
+		        return rs.next();
+		        
+		        
+		    } catch (ClassNotFoundException e) {
+		        System.out.println(e.getMessage()); 
+		    } catch (SQLException e) {
+		        System.out.println(e.getMessage());
+		    }
+			return false;
+		
+	}
 
 	
 }

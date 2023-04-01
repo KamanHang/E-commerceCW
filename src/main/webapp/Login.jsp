@@ -14,7 +14,7 @@
               <div class="form-content">
                   
 
-                  <form action="#">
+                  <form action="login" method="get">
                   <header>Login</header>
                       <div class="field input-field">
                         <input type="email" placeholder="Email" class="input" name="email" />
