@@ -12,7 +12,7 @@
             <div class="form-content">
                 
 
-                <form action="registration" method = "get">
+                <form action="../registration" method = "post">
                 <header>Sign up</header>
                 
                 	<div class="field input-field">
