@@ -1,17 +1,15 @@
-package servlet;
+package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
-
-import databases.CustomerDao;
-//import java.io.PrintWriter;
 
 //import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.CustomerDao;
 
 public class CustomerRegistration extends HttpServlet{
 	private static final long serialVersionUID = 1L;
@@ -39,7 +37,7 @@ public class CustomerRegistration extends HttpServlet{
 			out.println("<h1>Registration Successfully</h1>");
 		}
 		else {
-			out.println("<h1> User already exists <a href=signup.jsp> Try Again </a></h1>");
+			out.println("<h1> User already exists <a href='./view/signup.jsp'> Try Again </a></h1>");
 		}
 //		
 

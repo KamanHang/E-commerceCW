@@ -12,12 +12,12 @@
   
    <servlet>
   	<servlet-name>customerRegistration</servlet-name>
-  	<servlet-class>servlet.CustomerRegistration</servlet-class>
+  	<servlet-class>controller.CustomerRegistration</servlet-class>
   </servlet>
   
    <servlet>
   	<servlet-name>customerLogin</servlet-name>
-  	<servlet-class>servlet.Login</servlet-class>
+  	<servlet-class>controller.Login</servlet-class>
   </servlet>
   
   <servlet-mapping>
