@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="css/Signup.css">
-<script src="https://kit.fontawesome.com/fec65740f4.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/fec65740f4.js"></script>
 <title>Sign Up</title>
 </head>
 <body>

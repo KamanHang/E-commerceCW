@@ -7,7 +7,7 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-
+@media screen and (min-width: 1024px) {
 .container{
 	display:flex;
     background: white;
@@ -114,5 +114,5 @@ a:hover{
 .admin-btn{
 	margin-left: 1rem
 }
-
+}
 
