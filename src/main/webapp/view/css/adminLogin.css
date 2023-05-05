@@ -1,4 +1,6 @@
+@charset "ISO-8859-1";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -12,15 +14,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  
-}
-.logoImg{
-	position: absolute;
-	height: 20vh;
-	left: 600px;
-  top: 80px;
-  right: 20px;
-  transform: translateY(-50%);
 }
 .form{
     background: white;
@@ -28,23 +21,22 @@
     width: 100%;
     border-radius: 10px;
     padding: 30px;
-    height: 400px;
+    height: 450px;
     border-color: black;
     border-style:solid;
     margin-right: 10rem;
     margin-bottom: 5rem;
-    margin-left: 1.5rem;
+    margin-left: 8rem;
     margin-top: 4rem;
     box-shadow:  grey 0px 10px 20px -10px;
     border-width:medium;
-    
+    padding-top: 6rem;
 }
 header{
     font-size: 28px;
     font-weight: 600;
-    color: #2f2e41;
+    color: #232836;
     text-align: center;
-    
 }
 /* .field{
     position: relative;
@@ -73,8 +65,6 @@ header{
     height: 7vh;
     margin: 1rem 0 0 1rem;
     border-radius: 7px;
-    
-    
 }
 
 .inputs:focus{
@@ -101,109 +91,39 @@ header{
   transform: translateY(-50%);
 }
 
-
 .button{
     color: white;
     background-color: #2f2e41; 
     transition: all 0.3s ease;
     font-size: 21px;
-    margin-top: 20px;
+    margin-top: 3rem;
     height: 3rem;
     width: 40%;
-    margin-left: 6.8rem
+    margin-left: 6.8rem;
+    
 }
 
 .form-link{
     text-align: center;
     margin-top: 2rem;
-    color: #2f2e41;
    
 }
 .form-link a{
     font-size: 14px;
     font-weight: 400;
-    color: #2f2e41;
+    color:#232836;
     
 }
 .form a{
-    color: #2f2e41;
+    color: #0171d3;
     text-decoration: none;
 }
-
-.loginImg{
-    width: 50%;
-}
-
 .button:hover{
     background-color: #FFA500;
-    color: white;
-    cursor: pointer;
+    color: whitesmoke;
 }
+
 .signup-link:hover{
     text-decoration: none;
     color:#FFA500;
-    
-}
-
-.slider-frame{
-    overflow: hidden;
-    height: 500px;
-    width: 1200px;
-    margin-left: 10rem;
-    margin-top: 3rem;
-}
-
-/*---------- SLIDE ANIMATION --------------*/
-
-
-@keyframes slide_animation{
-    0% {left:0px;}
-    10% {left:0px;}
-    20% {left:1200px;}
-    30% {left:1200px;}
-    40% {left: 2400px;}
-    50% {left: 2400px;}
-    60% {left: 1200px;}
-    70% {left: 1200px;}
-    80% {left: 0px;}
-    90% {left: 0px;}
-    100% {left:0px;}
-}
-
-@-webkit-keyframes slide_animation{
-    0% {left:0px;}
-    10% {left:0px;}
-    20% {left:1200px;}
-    30% {left:1200px;}
-    40% {left: 2400px;}
-    50% {left: 2400px;}
-    60% {left: 1200px;}
-    70% {left: 1200px;}
-    80% {left: 0px;}
-    90% {left: 0px;}
-    100% {left:0px;}
-}
-
-.slide-img{
-    width: 3600px;
-    height: 800px;
-    margin: 0 0 0 -2400px;
-    position: relative;
-    -webkit-animation-name: slide_animation;
-    animation-name: slide_animation;
-    -webkit-animation-duration: 30s;
-    animation-duration: 15s;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-    -webkit-animation-direction: alternate;
-    animation-direction: alternate;
-    -webkit-animation-play-state: running;
-    animation-play-state: running;
-}
-
-.img-container{
-    height: 800px;
-    width: 1200px;
-    position: relative;
-    float: left;
 }

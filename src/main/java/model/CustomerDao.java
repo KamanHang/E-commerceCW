@@ -73,6 +73,29 @@ public class CustomerDao {
 			return false;
 		
 	}
+		
+		public boolean loginAdmin(String email, String pass) {
+		    try {
+		        Connection con = getConnection();
+	
+		        String query = "SELECT * FROM admin WHERE email = ? AND password = ?";
+	
+		        PreparedStatement st = con.prepareStatement(query);
+		        st.setString(1, email);
+		        st.setString(2, pass);
+	
+		        ResultSet rs = st.executeQuery();
+		        return rs.next();
+		        
+		        
+		    } catch (ClassNotFoundException e) {
+		        System.out.println(e.getMessage()); 
+		    } catch (SQLException e) {
+		        System.out.println(e.getMessage());
+		    }
+			return false;
+		
+	}
 
 	
 }

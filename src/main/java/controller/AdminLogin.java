@@ -11,17 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.AESEncryption;
 import model.CustomerDao;
 
-public class Login extends HttpServlet{
+public class AdminLogin extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	public void service(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
 		String email = request.getParameter("email");
 	
 		String password = request.getParameter("password");
-		String encryptedPassword = AESEncryption.encrypt(password);
 		
 
 		System.out.println(email+password);
@@ -32,7 +30,7 @@ public class Login extends HttpServlet{
 		PrintWriter out = response.getWriter();
 		
 		CustomerDao sd = new CustomerDao();
-		boolean message = sd.loginCustomer(email, encryptedPassword);
+		boolean message = sd.loginAdmin(email, password);
 		
 		if (message) {
 			
@@ -41,7 +39,7 @@ public class Login extends HttpServlet{
 		      session.setMaxInactiveInterval(5*60);
 		      session.setAttribute("email", email);
 		      
-		      RequestDispatcher rd = request.getRequestDispatcher("./view/CustomerProfile.jsp");
+		      RequestDispatcher rd = request.getRequestDispatcher("./view/Admin.jsp");
 		      rd.forward(request, response);
 		   } else {
 		      

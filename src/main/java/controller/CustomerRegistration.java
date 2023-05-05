@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.AESEncryption;
 import model.CustomerDao;
 
 public class CustomerRegistration extends HttpServlet{
@@ -18,16 +19,17 @@ public class CustomerRegistration extends HttpServlet{
 		String username = request.getParameter("username");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
+		String encryptedPassword = AESEncryption.encrypt(password);
 	
 		
 		
 		System.out.println(username);
 		System.out.println(email);
-		System.out.println(password);
+		System.out.println(encryptedPassword);
 		
 
 		CustomerDao cd = new CustomerDao();
-		String message = cd.registerCustomer(username, email, password);
+		String message = cd.registerCustomer(username, email, encryptedPassword);
 		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
