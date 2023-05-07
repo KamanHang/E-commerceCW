@@ -34,20 +34,17 @@ public class Login extends HttpServlet{
 		CustomerDao sd = new CustomerDao();
 		boolean message = sd.loginCustomer(email, encryptedPassword);
 		
+		HttpSession session = request.getSession();
+		
 		if (message) {
-			
-			  HttpSession session = request.getSession();
-		      request.setAttribute("email", email);
-		      session.setMaxInactiveInterval(5*60);
-		      session.setAttribute("email", email);
-		      
-		      RequestDispatcher rd = request.getRequestDispatcher("./view/CustomerProfile.jsp");
-		      rd.forward(request, response);
+				session.setAttribute("email", email);
+				request.setAttribute("statusLogin","LoginSuccess");
+			    RequestDispatcher rd = request.getRequestDispatcher("customerProfile");
+			    rd.include(request, response);
 		   } else {
-		      
-		      response.setContentType("text/html");
-		  
-		      out.println("<h1>Error Please <a href=Login.jsp>Try Again</a></h1>");
+			   request.setAttribute("status","loginError");
+			   RequestDispatcher rd = request.getRequestDispatcher("./view/Login.jsp");
+			   rd.include(request, response);	
 		   }
 		
 

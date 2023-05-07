@@ -21,7 +21,6 @@
 		<div class="customer">
 			<img class="admin-img" src="./img/admin.jpg" alt="customer image" />
 			<div class="button-admin">
-				
 				<a class="admin-btn" href="AdminLogin.jsp">Admin</a>
 			</div>
 		</div>

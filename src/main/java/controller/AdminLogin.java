@@ -31,21 +31,18 @@ public class AdminLogin extends HttpServlet{
 		
 		CustomerDao sd = new CustomerDao();
 		boolean message = sd.loginAdmin(email, password);
+		HttpSession session = request.getSession();
 		
 		if (message) {
-			
-			  HttpSession session = request.getSession();
-		      request.setAttribute("email", email);
-		      session.setMaxInactiveInterval(5*60);
 		      session.setAttribute("email", email);
-		      
-		      RequestDispatcher rd = request.getRequestDispatcher("./view/Admin.jsp");
-		      rd.forward(request, response);
+		      response.sendRedirect("adminPanel");
 		   } else {
 		      
 		      response.setContentType("text/html");
 		  
-		      out.println("<h1>Error Please <a href=Login.jsp>Try Again</a></h1>");
+		      request.setAttribute("status", "failed");
+		      RequestDispatcher rd = request.getRequestDispatcher("./view/AdminLogin.jsp");
+			  rd.forward(request, response);	
 		   }
 		
 
