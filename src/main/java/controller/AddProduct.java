@@ -27,7 +27,9 @@ public class AddProduct extends HttpServlet{
 	public void service(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
 		String productID = request.getParameter("productID");
 		String productName = request.getParameter("productName");
+		String productBrand = request.getParameter("productBrand");
 		String productDescription = request.getParameter("description");
+		String productRating = request.getParameter("productRating");
 		String productPrice = request.getParameter("productPrice");
 		String productCategory = request.getParameter("productCategory");
 	
@@ -43,12 +45,14 @@ public class AddProduct extends HttpServlet{
 		
 		System.out.println(productID);
 		System.out.println(productName);
+		System.out.println(productBrand);
 		System.out.println(productDescription);
 		System.out.println(productPrice);
+		System.out.println(productRating);
 		System.out.println(productImagePath);
 		System.out.println(finalPath);
 		
-		Product product = new Product(productID,productImagePath,productName,productDescription,productPrice, productCategory );
+		Product product = new Product(productID,productImagePath,productName,productBrand,productDescription,productRating, productPrice, productCategory );
 		CustomerDao sd = new CustomerDao();   
 		String message = sd.addProduct(product);
 		

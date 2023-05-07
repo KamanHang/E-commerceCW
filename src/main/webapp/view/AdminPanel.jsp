@@ -26,7 +26,7 @@ body {
 
 .table {
   margin: 3rem auto;
-  width: 90%;
+  width: 95%;
   border-collapse: collapse;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
@@ -169,7 +169,23 @@ body {
 </head>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <body>
-	
+		<%
+		String email = (String) session.getAttribute("email");
+		if (email == null || email.isEmpty()) {
+	%>
+			<script>
+				Swal.fire({
+					icon: 'error',
+					title: 'Please log in first',
+					confirmButtonText: 'OK'
+				}).then(function() {
+					window.location.href = '${pageContext.request.contextPath}/view/Login.jsp';
+				});
+			</script>
+	<%
+			return;
+		}
+	%>
 <div class="header">
 	<h1>Admin Panel</h1>
 	<div class="login">
@@ -183,8 +199,10 @@ body {
 			<th>Product Id</th>
 			<th>Product Image</th>
 			<th>Product Name</th>
+			<th>Product Brand</th>
 			<th>Product Description</th>
 			<th>Product Category</th>
+			<th>Product Rating</th>
 			<th>Product Price</th>
 			<th>Actions</th>
 		</tr>
@@ -193,9 +211,11 @@ body {
 				<td><c:out value="${pd.productID}"/></td>
 				<td><img src="images/${pd.productImage}?v=${time}" height="100px" width="100px"></td>
 				<td>${pd.productName}</td>
+				<td>${pd.productBrand}</td>
 				<td>${pd.productDescription}</td>
 				<td>${pd.productCategory}</td>
-				<td>${pd.productPrice}</td>
+				<td>${pd.productRating}</td>
+				<td>Rs. ${pd.productPrice}</td>
 				
 				<td><a class="edit-link" href="${pageContext.request.contextPath}/editStudent?id=${pd.productID}">Edit</a>
 					<a class="delete-link" href="${pageContext.request.contextPath}/deleteProduct?id=${pd.productID}">Delete</a></td>

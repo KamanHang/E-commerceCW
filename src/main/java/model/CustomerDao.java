@@ -112,15 +112,17 @@ public class CustomerDao {
 					String productID = table.getString(1);
 					String productImage = table.getString(2);
 					String productName = table.getString(3);
-					String productDescription = table.getString(4);
-					String productPrice = table.getString(5);
-					String productCategory = table.getString(6);
+					String productBrand = table.getString(4);
+					String productDescription = table.getString(5);
+					String productRating = table.getString(6);
+					String productPrice = table.getString(7);
+					String productCategory = table.getString(8);
 
 					
 					System.out.println(productID);
 					
 					
-					Product product = new Product(productID,productImage,productName,productDescription,productPrice,productCategory);
+					Product product = new Product(productID,productImage,productName,productBrand,productDescription,productRating,productPrice,productCategory);
 					productList.add(product);		
 				}
 				
@@ -150,16 +152,18 @@ public String addProduct(Product product) {
 			try {
 				Connection con = getConnection();
 				
-				String query = "INSERT INTO product values(?,?,?,?,?,?)";
+				String query = "INSERT INTO product values(?,?,?,?,?,?,?,?)";
 	
 				
 				PreparedStatement st = con.prepareStatement(query);
 				st.setString(1, product.getProductID());
 				st.setString(2, product.getProductImage());
 				st.setString(3, product.getProductName());
-				st.setString(4, product.getProductDescription());
-				st.setString(5, product.getProductPrice());
-				st.setString(6, product.getProductCategory());
+				st.setString(4, product.getProductBrand());
+				st.setString(5, product.getProductDescription());
+				st.setString(6, product.getProductRating());
+				st.setString(7, product.getProductPrice());
+				st.setString(8, product.getProductCategory());
 
 				int rows = st.executeUpdate();
 				if(rows >= 1) {
@@ -194,11 +198,13 @@ public String addProduct(Product product) {
 					String productID2 = table.getString(1);
 					String productImage = table.getString(2);
 					String productName = table.getString(3);
-					String productDescription = table.getString(4);
-					String productPrice = table.getString(5);
-					String productCategory = table.getString(6);
+					String productBrand = table.getString(4);
+					String productDescription = table.getString(5);
+					String productRating = table.getString(6);
+					String productPrice = table.getString(7);
+					String productCategory = table.getString(8);
 					
-					product = new Product(productID2,productImage,productName,productDescription,productPrice,productCategory);
+					product = new Product(productID2,productImage,productName,productBrand,productDescription,productRating,productPrice,productCategory);
 							
 				}			
 			} catch (ClassNotFoundException | SQLException e) {
@@ -223,16 +229,19 @@ public String addProduct(Product product) {
 			try {
 				
 				Connection con =  getConnection();
-				String query = "UPDATE product SET productImage=?, productName=?, productDescription=?, productPrice=?, productCategory=? where productID=?";
-				PreparedStatement pst = con.prepareStatement(query);
-				pst.setString(1,product.getProductImage());
-				pst.setString(2,product.getProductName());
-				pst.setString(3,product.getProductDescription());
-				pst.setString(4,product.getProductPrice());
-				pst.setString(5,product.getProductCategory());
-				pst.setString(6,product.getProductID());
+				String query = "UPDATE product SET productImage=?, productName=?, productBrand=?, productDescription=?, productRating=?, productPrice=?, productCategory=? where productID=?";
+				PreparedStatement st = con.prepareStatement(query);
+				
+				st.setString(1, product.getProductImage());
+				st.setString(2, product.getProductName());
+				st.setString(3, product.getProductBrand());
+				st.setString(4, product.getProductDescription());
+				st.setString(5, product.getProductRating());
+				st.setString(6, product.getProductPrice());
+				st.setString(7, product.getProductCategory());
+				st.setString(8, product.getProductID());
 
-				int rows = pst.executeUpdate();
+				int rows = st.executeUpdate();
 				if(rows >= 1) {
 					message = "Successfully Updated";
 				}

@@ -28,19 +28,29 @@ public class UpdateProduct extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String productID = request.getParameter("productID");
 		String productName = request.getParameter("productName");
+		String productBrand = request.getParameter("productBrand");
 		String description = request.getParameter("description");
+		String productRating = request.getParameter("productRating");
 		String productPrice = request.getParameter("productPrice");
 		String productCategory = request.getParameter("productCategory");
 		String productImagePath = "productImage/"+productID+".png";
 		
 		Part image = request.getPart("productImage");
 		
-		Product product = new Product(productID,productImagePath,productName,description,productPrice, productCategory);
+		Product product = new Product(productID,productImagePath,productName,productBrand,description,productRating, productPrice, productCategory);
 		CustomerDao sDao = new CustomerDao();
 		String message =  sDao.updateProduct(product);
 		
+		System.out.println(productID);
+		System.out.println(productName);
+		System.out.println(productBrand);
+		System.out.println(description);
+		System.out.println(productPrice);
+		System.out.println(productRating);
+		System.out.println(productCategory);
+		
 	
-	
+		System.out.println(message + "lol");
 		if(message.equals("Successfully Updated")){
 			System.out.println("Image.....");
 			String imagePath = getServletContext().getInitParameter("imagePath");

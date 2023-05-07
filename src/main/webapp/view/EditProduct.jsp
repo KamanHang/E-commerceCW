@@ -242,11 +242,24 @@ header{
 	                         <input class="inputs" type="text" placeholder="Enter Product Name" class="input" name="productName" value="${product.productName}" />
 	                    </div>
 	                    
+	                    <div class="input-field">
+	             
+	                    	 <i class="fa-solid fa-signature" style="color: #2f2e41;"></i>
+	                         <input class="inputs" type="text" placeholder="Enter Product Brand" class="input" name="productBrand" value="${product.productBrand}" required />
+	                    </div>
+	                    
 	
 	                    <div class="input-field">
 	          
 	                    	<i class="fa-solid fa-align-justify" style="color: #2f2e41;"></i>
 	                        <input class="inputs" type="text" placeholder="Enter Product Description" class="input" name="description" value="${product.productDescription}" required />
+	                    </div>
+	                    
+	                    <div class="input-field">
+	                   
+	                    
+	                    	 <i class="fa-solid fa-star"  style="color: #2f2e41;"></i>
+	                         <input class="inputs" type="text" placeholder="Enter Product Rating" class="input" name="productRating" value="${product.productRating}" required />
 	                    </div>
                     
                     </div>
