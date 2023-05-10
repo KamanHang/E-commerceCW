@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,10 +14,8 @@ import javax.servlet.http.HttpSession;
 import model.CustomerDao;
 import model.Product;
 
-
-
-@WebServlet("/editProduct")
-public class EditProduct extends HttpServlet {
+@WebServlet("/homePage")
+public class HomePage extends HttpServlet {
 	/**
 	 * 
 	 */
@@ -24,14 +23,17 @@ public class EditProduct extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//creating new object of CustomerDao Class
+		CustomerDao sdao = new CustomerDao();
+		//fetching arraylist from fetchStudentRecord function
+		
 		HttpSession session = request.getSession();
 		session.getAttribute("email");
-		String id = request.getParameter("id");
-		Product pd = new CustomerDao().getProductRecordById(id);
-		System.out.println(pd);
-		request.setAttribute("product",pd);
-		RequestDispatcher rd = request.getRequestDispatcher("./view/EditProduct.jsp");
+		request.setAttribute("status", "LoginSuccess");
+		ArrayList<Product> productList =  sdao.fetchProductDetails();
+		request.setAttribute("pdList",productList); 
+		System.out.println(productList);
+		RequestDispatcher rd = request.getRequestDispatcher("view/HomePage.jsp");
 		rd.forward(request, response);
-		
 	}
 }

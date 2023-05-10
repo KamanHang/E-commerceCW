@@ -8,8 +8,7 @@
 
 <title>Sign Up</title>
 <style>
-	@charset "ISO-8859-1";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+			@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 *{
     margin: 0;
@@ -27,8 +26,8 @@
 }
 .form{
     background: white;
-    max-width: 400px;
-    width: 100%;
+    
+    width: 150% ;
     border-radius: 10px;
     padding: 30px;
     height: 600px;
@@ -37,7 +36,7 @@
     margin-right: 10rem;
     margin-bottom: 5rem;
     margin-left: 10rem;
-    margin-top: 2rem;
+    margin-top: 4rem;
     box-shadow:  grey 0px 10px 20px -10px;
     border-width:medium;
 }
@@ -87,7 +86,7 @@ header{
     position: relative;
     height: 50px;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 20px;
     border-radius: 6px;
     padding-left: 1rem;
 }
@@ -107,8 +106,10 @@ header{
     font-size: 21px;
     margin-top: 20px;
     height: 3rem;
-    width: 40%;
-    margin-left: 6.8rem
+    width: 15%;
+    margin-left: 3.5rem;
+    margin-right: 2rem;
+    
 }
 
 .form-link{
@@ -119,21 +120,23 @@ header{
 .form-link a{
     font-size: 14px;
     font-weight: 400;
-    color:#232836;
+    
     
 }
 .form a{
-    color: #0171d3;
+ 
     text-decoration: none;
 }
 .button:hover{
     background-color: #FFA500;
     color: whitesmoke;
+     cursor: pointer;
 }
 
 .signup-link:hover{
     text-decoration: none;
     color:#FFA500;
+    cursor: pointer;
 }
 
 .avatar-img{
@@ -159,6 +162,38 @@ header{
     margin: 0rem 0 0 1rem;
     border-radius: 7px;
 }
+.division{
+	display: flex;
+}
+
+.button-field {
+    display: flex;
+    width: 100%;
+    margin-top: 2rem;
+    justify-content: center;
+  }
+  
+.view-products {
+	color: white;
+    background-color: #28a745; 
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    height: 3rem;
+    width: 15%;
+    margin-left: 0rem;
+    margin-right: 0;
+    border-radius: 6px;
+    padding: 0.7rem 1rem 0.5rem 1.7rem;
+}
+
+.view-products:hover {
+  background-color: #FFA500;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+
+
 </style>
 <link rel="stylesheet" href="fonts-6/css/all.css">
 </head>
@@ -177,25 +212,41 @@ header{
                 		<img class="avatar-img" id="imageShow" src="./img/avatar.png" alt="avtar-img" />
                 	</div>
                     
-                	<div class="input-field">
-                		<i class="fa-solid fa-user" style="color: #2f2e41;"></i>
-                        <input class="inputs" type="text" placeholder="Username" class="input" name="username" required />
-                    </div>
-                
-                    <div class="input-field">
-                    	 <i class="fa fa-solid fa-envelope" style="color: #2f2e41;"></i>
-                         <input class="inputs" type="email" placeholder="Email" class="input" name="email" required />
-                    </div>
+                    <div class="division">
+	                	<div class="input-field">
+	                		<i class="fa-solid fa-user" style="color: #2f2e41;"></i>
+	                        <input class="inputs" type="text" placeholder="Username" class="input" name="username" required />
+	                    </div>
+	                
+	                    <div class="input-field">
+	                    	 <i class="fa fa-solid fa-envelope" style="color: #2f2e41;"></i>
+	                         <input class="inputs" type="email" placeholder="Email" class="input" name="email" required />
+	                    </div>
+	                    
+	                    <div class="input-field">
+	                		<i class="fa-solid fa-phone" style="color: #2f2e41;"></i>
+	                        <input class="inputs" type="text" placeholder="Enter your Phone Number" class="input" name="phoneNumber" required />
+	                    </div>
                     
-
-                    <div class="input-field">
-                    	<i class="fa-solid fa-lock" style="color: #2f2e41;"></i>
-                        <input class="inputs" type="Password" placeholder="Create a password" class="Password" name="password" required />
-                        
                     </div>
-                    <div class="input-field">
-                    	<i class="fa-solid fa-image" style="color: #2f2e41;"></i>
-						<input class = "input-img" id="imageChooser" onchange="changeImage()" type="file" name="image" /> 
+                	<div class="division">
+	                    <div class="input-field">
+	                    	 <i class="fa-solid fa-house" style="color: #2f2e41;"></i>
+	                         <input class="inputs" type="text" placeholder="Enter your Address" class="input" name="address" required />
+	                    </div>
+	                    
+	                  
+	
+	                    <div class="input-field">
+	                    	<i class="fa-solid fa-lock" style="color: #2f2e41;"></i>
+	                        <input class="inputs" type="Password" placeholder="Create a password" class="Password" name="password" required />
+	                        
+	                    </div>
+	                    <div class="input-field">
+	                    	<i class="fa-solid fa-image" style="color: #2f2e41;"></i>
+							<input class = "input-img" id="imageChooser" onchange="changeImage()" type="file" name="image" /> 
+						</div>
+					
 					</div>
 
                     <div class="button-field">

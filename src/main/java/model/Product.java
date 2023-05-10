@@ -22,12 +22,18 @@ public class Product {
 		this.productCategory = productCategory;
 		this.productRating = productRating;
 	}
+	
+	
 	public String getProductID() {
 		return productID;
 	}
+
+
 	public void setProductID(String productID) {
 		this.productID = productID;
 	}
+
+
 	public String getProductImage() {
 		return productImage;
 	}

@@ -24,6 +24,8 @@ public class CustomerRegistration extends HttpServlet{
 	public void service(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
 		String username = request.getParameter("username");
 		String email = request.getParameter("email");
+		String phoneNumber = request.getParameter("phoneNumber");
+		String address = request.getParameter("address");
 		String password = request.getParameter("password");
 		String encryptedPassword = AESEncryption.encrypt(password);
 		
@@ -42,7 +44,7 @@ public class CustomerRegistration extends HttpServlet{
 		System.out.println(encryptedPassword);
 		System.out.println(finalPath);
 		
-		Customer customer = new Customer(username,email,encryptedPassword,userImagePath);
+		Customer customer = new Customer(username,email,phoneNumber,address,encryptedPassword,userImagePath);
 		CustomerDao sd = new CustomerDao();   
 		String message = sd.registerCustomer(customer);
 		

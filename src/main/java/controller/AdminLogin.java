@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.AESEncryption;
 import model.CustomerDao;
 
 public class AdminLogin extends HttpServlet{
@@ -20,6 +21,7 @@ public class AdminLogin extends HttpServlet{
 		String email = request.getParameter("email");
 	
 		String password = request.getParameter("password");
+		String encryptedPassword = AESEncryption.encrypt(password);
 		
 
 		System.out.println(email+password);
@@ -30,7 +32,7 @@ public class AdminLogin extends HttpServlet{
 		PrintWriter out = response.getWriter();
 		
 		CustomerDao sd = new CustomerDao();
-		boolean message = sd.loginAdmin(email, password);
+		boolean message = sd.loginAdmin(email, encryptedPassword);
 		HttpSession session = request.getSession();
 		
 		if (message) {

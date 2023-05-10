@@ -39,7 +39,7 @@ public class Login extends HttpServlet{
 		if (message) {
 				session.setAttribute("email", email);
 				request.setAttribute("statusLogin","LoginSuccess");
-			    RequestDispatcher rd = request.getRequestDispatcher("customerProfile");
+			    RequestDispatcher rd = request.getRequestDispatcher("/homePage");
 			    rd.include(request, response);
 		   } else {
 			   request.setAttribute("status","loginError");

@@ -258,7 +258,7 @@ header{
                     <div class="division">
 	                	<div class="input-field">
 	                		<i class="fa-solid fa-id-card" style="color: #2f2e41;"></i>
-	                        <input class="inputs" type="text" placeholder="Enter Product ID" class="input" name="productID" required />
+	                        <input class="inputs" type="number" placeholder="Enter Product ID" class="input" name="productID" required />
 	                    </div>
 	                
 	                    <div class="input-field">
@@ -281,6 +281,7 @@ header{
 	                    </div>
 	                    
 	                </div>
+	                <div class="division">
 	                 <div class="input-field">
 	                   
 	                    
@@ -288,7 +289,7 @@ header{
 	                         <input class="inputs" type="text" placeholder="Enter Product Rating" class="input" name="productRating" required />
 	                    </div>
 	                
-	                <div class="division">
+	                
 	                    
 		                     <div class="input-field">
 		                

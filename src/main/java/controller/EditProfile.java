@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Customer;
 import model.CustomerDao;
-import model.Product;
 
 
 
-@WebServlet("/editProduct")
-public class EditProduct extends HttpServlet {
+@WebServlet("/editProfile")
+public class EditProfile extends HttpServlet {
 	/**
 	 * 
 	 */
@@ -26,11 +26,11 @@ public class EditProduct extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.getAttribute("email");
-		String id = request.getParameter("id");
-		Product pd = new CustomerDao().getProductRecordById(id);
-		System.out.println(pd);
-		request.setAttribute("product",pd);
-		RequestDispatcher rd = request.getRequestDispatcher("./view/EditProduct.jsp");
+		String email = request.getParameter("email");
+		Customer cu = new CustomerDao().getProductRecordByEmail(email);
+		System.out.println(cu);
+		request.setAttribute("customer",cu);
+		RequestDispatcher rd = request.getRequestDispatcher("./view/EditProfile.jsp");
 		rd.forward(request, response);
 		
 	}

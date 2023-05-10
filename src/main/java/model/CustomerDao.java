@@ -26,14 +26,16 @@ public class CustomerDao {
 			try {
 				Connection con = getConnection();
 				
-				String query = "INSERT INTO registration values(?,?,?,?)";
+				String query = "INSERT INTO registration values(?,?,?,?,?,?)";
 	
 				
 				PreparedStatement st = con.prepareStatement(query);
 				st.setString(1, customer.getUsername());
 				st.setString(2, customer.getEmail());
-				st.setString(3, customer.getPassword());
-				st.setString(4, customer.getImagePath());
+				st.setString(3, customer.getPhoneNumber());
+				st.setString(4, customer.getAddress());
+				st.setString(5, customer.getPassword());
+				st.setString(6, customer.getImagePath());
 				int rows = st.executeUpdate();
 				if(rows >= 1) {
 					System.out.println("Successfully inserted " + rows + " rows.");
@@ -147,6 +149,77 @@ public class CustomerDao {
 						
 		}
 		
+
+		public ArrayList<Product> fetchQueryProduct(String search) {
+		    ArrayList<Product> productList = new ArrayList<>();
+		    Connection con = null;
+		    try {
+		        con = getConnection();
+		        String query = "SELECT * FROM product WHERE productName LIKE ? ";
+		        PreparedStatement st = con.prepareStatement(query);
+		        st.setString(1, "%"+ search + "%");
+		        ResultSet table = st.executeQuery();
+		        while(table.next()) {
+		            String productID = table.getString(1);
+		            String productImage = table.getString(2);
+		            String productName = table.getString(3);
+		            String productBrand = table.getString(4);
+		            String productDescription = table.getString(5);
+		            String productRating = table.getString(6);
+		            String productPrice = table.getString(7);
+		            String productCategory = table.getString(8);
+
+		            Product product = new Product(productID, productImage, productName, productBrand, productDescription, productRating, productPrice, productCategory);
+		            productList.add(product);       
+		        }
+		    } catch (ClassNotFoundException | SQLException e) {
+		        e.printStackTrace();
+		    } finally {
+		        try {
+		            con.close();
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		    }
+		    return productList;
+		}
+		
+
+		public ArrayList<Product> fetchBrand(String search) {
+		    ArrayList<Product> productList = new ArrayList<>();
+		    Connection con = null;
+		    try {
+		        con = getConnection();
+		        String query = "SELECT * FROM product WHERE productBrand LIKE ? ";
+		        PreparedStatement st = con.prepareStatement(query);
+		        st.setString(1, "%"+ search + "%");
+		        ResultSet table = st.executeQuery();
+		        while(table.next()) {
+		            String productID = table.getString(1);
+		            String productImage = table.getString(2);
+		            String productName = table.getString(3);
+		            String productBrand = table.getString(4);
+		            String productDescription = table.getString(5);
+		            String productRating = table.getString(6);
+		            String productPrice = table.getString(7);
+		            String productCategory = table.getString(8);
+
+		            Product product = new Product(productID, productImage, productName, productBrand, productDescription, productRating, productPrice, productCategory);
+		            productList.add(product);       
+		        }
+		    } catch (ClassNotFoundException | SQLException e) {
+		        e.printStackTrace();
+		    } finally {
+		        try {
+		            con.close();
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		    }
+		    return productList;
+		}
+
+		
 public String addProduct(Product product) {
 			
 			try {
@@ -224,6 +297,44 @@ public String addProduct(Product product) {
 			return product;
 		}
 		
+		public Customer getProductRecordByEmail(String email) {
+			Connection con = null;
+			Customer customer = null;
+			try {
+				con = getConnection();
+				String query = "select * from registration where email=?";
+				PreparedStatement st = con.prepareStatement(query);
+				st.setString(1,email);
+				ResultSet table = st.executeQuery();
+				while(table.next()) {
+					String username = table.getString(1);
+					String email2 = table.getString(2);
+					String phoneNumber = table.getString(3);
+					String address = table.getString(4);
+					String password = table.getString(5);
+					String imagePath = table.getString(6);
+					String decryptPassword = AESEncryption.decrypt(password);
+					
+					customer = new Customer(username,email2,phoneNumber,address,decryptPassword,imagePath);
+							
+				}			
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				
+			}
+			finally {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			return customer;
+		}
+		
 		public String updateProduct(Product product) {
 			String message = "";
 			try {
@@ -240,6 +351,37 @@ public String addProduct(Product product) {
 				st.setString(6, product.getProductPrice());
 				st.setString(7, product.getProductCategory());
 				st.setString(8, product.getProductID());
+
+				int rows = st.executeUpdate();
+				if(rows >= 1) {
+					message = "Successfully Updated";
+				}
+				
+				System.out.println(message);
+				con.close();	
+			} catch (SQLException | ClassNotFoundException e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+				message = e.getMessage();
+			}
+			return message;	
+		}
+		
+		public String updateCustomerProfile(Customer customer) {
+			String message = "";
+			try {
+				
+				Connection con =  getConnection();
+				String query = "UPDATE registration SET username=?, phoneNumber=?, address=?, password=?, imagePath=? where email=?";
+				PreparedStatement st = con.prepareStatement(query);
+				
+				
+				st.setString(1, customer.getUsername());
+				st.setString(2, customer.getPhoneNumber());
+				st.setString(3, customer.getAddress());
+				st.setString(4, customer.getPassword());
+				st.setString(5, customer.getImagePath());
+				st.setString(6, customer.getEmail());
 
 				int rows = st.executeUpdate();
 				if(rows >= 1) {

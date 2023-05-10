@@ -34,7 +34,7 @@ body {
 
 .table th,
 .table td {
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: center;
   border: 1px solid #ddd;
 }
@@ -217,7 +217,7 @@ body {
 				<td>${pd.productRating}</td>
 				<td>Rs. ${pd.productPrice}</td>
 				
-				<td><a class="edit-link" href="${pageContext.request.contextPath}/editStudent?id=${pd.productID}">Edit</a>
+				<td><a class="edit-link" href="${pageContext.request.contextPath}/editProduct?id=${pd.productID}">Edit</a>
 					<a class="delete-link" href="${pageContext.request.contextPath}/deleteProduct?id=${pd.productID}">Delete</a></td>
 			</tr>	
 		</c:forEach>

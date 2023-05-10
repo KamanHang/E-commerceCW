@@ -129,11 +129,11 @@ header{
 .form-link a{
     font-size: 14px;
     font-weight: 400;
-    color: #2f2e41;
+    color: #232836;
     
 }
 .form a{
-    color: #2f2e41;
+    color: #0171d3;
     text-decoration: none;
 }
 
@@ -262,7 +262,7 @@ header{
                     </div>
 
                     <div class="form-link">
-                          <span>New Customer? <a href="Signup.jsp" class="signup-link">Sign Up</a></span>
+                          <span>New Customer? <a href="Signup.jsp" class="signup-link">SignUp</a></span>
                     </div>
                 </form>
             </div>

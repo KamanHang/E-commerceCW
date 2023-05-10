@@ -15,7 +15,7 @@
 			<img class="customer-img" src="./img/customer.png" alt="customer image" />
 			<div class="button">
 				
-				<a href="Login.jsp">Customer</a>
+				<a href="${pageContext.request.contextPath}/homePage">Customer</a>
 			</div>
 		</div>
 		<div class="customer">
