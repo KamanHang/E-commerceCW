@@ -169,7 +169,7 @@ margin-left:26rem;
 					title: 'Please log in first',
 					confirmButtonText: 'OK'
 				}).then(function() {
-					window.location.href = '${pageContext.request.contextPath}/view/AdminLogin.jsp';
+					window.location.href = '${pageContext.request.contextPath}/view/FirstPage.jsp';
 				});
 			</script>
 	<%
@@ -278,7 +278,25 @@ margin-left:26rem;
 	<script type="text/javascript">
 	function logout(){
 		
-		window.location.href = "${pageContext.request.contextPath}/view/Login.jsp"
+		<%
+		session.setAttribute("email", null);
+		if (email == null  || email.isEmpty()) {
+	%>
+			<script>
+				Swal.fire({
+					icon: 'error',
+					title: 'Logging Out',
+					confirmButtonText: 'OK'
+				}).then(function() {
+					window.location.href = '${pageContext.request.contextPath}/view/FirstPage.jsp';
+				});
+			</script>
+	<%
+			return;
+		}
+	%>
+		
+		window.location.href = "${pageContext.request.contextPath}/view/FirstPage.jsp"
 	}
 	</script>
 </body>

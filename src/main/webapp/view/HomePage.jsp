@@ -125,7 +125,7 @@ li {
 }
 
 .nav-links{
-	margin-left: 15rem;
+	margin-left: 1rem;
 	margin-top: 2rem;
 
 }
@@ -172,6 +172,11 @@ li {
 }
 
 
+.input-field{
+	margin-top: 1.5rem;
+}
+
+
 
 
 </style>
@@ -186,6 +191,18 @@ li {
 	<div class="navbar">
 		
 			<h1>PoShak</h1>
+			<form action="${pageContext.request.contextPath}/brandQuery" method = "post">
+				<div class="input-field">
+	                        <input class="inputs" type="search" placeholder="Search by Brand" class="input" name="name"/>
+	                        <button type="submit" >Search</button>
+	                    </div>
+	        </form>
+	        <form action="${pageContext.request.contextPath}/searchQuery" method = "post">
+				<div class="input-field">
+	                        <input class="inputs" type="search" placeholder="Search by Name" class="input" name="name"/>
+	                        <button type="submit" >Search</button>
+	                    </div>
+	        </form>
 			
 				<div class="nav-links">
 				  <ul>
@@ -237,7 +254,7 @@ li {
 	<script type="text/javascript">
 	function logout(){
 		
-		window.location.href = "${pageContext.request.contextPath}/view/Login.jsp"
+		window.location.href = "${pageContext.request.contextPath}/view/FirstPage.jsp"
 	}
 	</script>
 
