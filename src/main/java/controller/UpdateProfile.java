@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import model.AESEncryption;
 import model.Customer;
 import model.CustomerDao;
 
@@ -31,10 +32,11 @@ public class UpdateProfile extends HttpServlet {
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		String userImagePath = "userimage/"+email+".png";
+		String encryptedPassword = AESEncryption.encrypt(password);
 		
 		Part image = request.getPart("image");
 		
-		Customer customer = new Customer(username, email, phoneNumber, address, password, userImagePath);
+		Customer customer = new Customer(username, email, phoneNumber, address, encryptedPassword, userImagePath);
 		CustomerDao sDao = new CustomerDao();
 		String message =  sDao.updateCustomerProfile(customer);
 		

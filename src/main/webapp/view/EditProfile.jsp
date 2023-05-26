@@ -169,7 +169,7 @@ margin-left:26rem;
 					title: 'Please log in first',
 					confirmButtonText: 'OK'
 				}).then(function() {
-					window.location.href = '${pageContext.request.contextPath}/view/FirstPage.jsp';
+					window.location.href = '${pageContext.request.contextPath}/view/Login.jsp';
 				});
 			</script>
 	<%
@@ -219,8 +219,6 @@ margin-left:26rem;
 	                </div>
 	                <div class="division"> 
 	                    <div class="input-field">
-	                   
-	                    
 	                    	 <label> Email </label>
 	                         <input class="inputs" type="text" placeholder="Enter Product Rating" class="input" name="email" value="${customer.email}" required />
 	                    </div>
@@ -288,7 +286,7 @@ margin-left:26rem;
 					title: 'Logging Out',
 					confirmButtonText: 'OK'
 				}).then(function() {
-					window.location.href = '${pageContext.request.contextPath}/view/FirstPage.jsp';
+					window.location.href = '${pageContext.request.contextPath}/view/Login.jsp';
 				});
 			</script>
 	<%

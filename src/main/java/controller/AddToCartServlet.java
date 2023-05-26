@@ -23,7 +23,7 @@ public class AddToCartServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String email = (String) session.getAttribute("email");
 
-        if (email == null) {
+        if (email == null) { 
             //User is not logged in, redirect to login page
             response.sendRedirect("view/Login.jsp");
         }else {

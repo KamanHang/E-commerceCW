@@ -123,10 +123,6 @@ input{
 </style>
 </head>
 <body>
-
-	
-
-
 	<div class="container">
 	<h1>Add to Cart</h1>
 	<c:set var="time" value="<%=new Date().getTime()%>"/>

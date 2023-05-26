@@ -232,23 +232,7 @@ body {
 	<script type="text/javascript">
 	function logout(){
 		
-		<%
-		session.setAttribute("email", null);
-		if (email == null  || email.isEmpty()) {
-	%>
-			<script>
-				Swal.fire({
-					icon: 'error',
-					title: 'Logging Out',
-					confirmButtonText: 'OK'
-				}).then(function() {
-					window.location.href = '${pageContext.request.contextPath}/view/AdminLogin.jsp.jsp';
-				});
-			</script>
-	<%
-			return;
-		}
-	%>
+		window.location.href = '${pageContext.request.contextPath}/view/AdminLogin.jsp';
 		
 	}
 	</script>

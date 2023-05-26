@@ -404,7 +404,7 @@ public String addProduct(Product product) {
 			try {
 				con = getConnection();
 				String query = "DELETE from product where productID=?";
-				PreparedStatement st = con.prepareStatement(query);
+				PreparedStatement st = con.prepareStatement(query);   
 				st.setString(1,productID);
 				rows = st.executeUpdate();			
 			} catch (ClassNotFoundException | SQLException e) {
